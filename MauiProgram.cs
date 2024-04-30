@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using jespinozaS5.Helpers;
+using jespinozaS5.Repository;
+using Microsoft.Extensions.Logging;
+using Microsoft.UI.Xaml.Controls;
 
 namespace jespinozaS5
 {
@@ -14,6 +17,9 @@ namespace jespinozaS5
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            string path = FileAccessHelper.GetLocalPath("dbPersona.db3");
+            builder.Services.AddSingleton<PersonaRepository>(s=>ActivatorUtilities.CreateInstance<PersonaRepository>(s,path));
 
 #if DEBUG
     		builder.Logging.AddDebug();

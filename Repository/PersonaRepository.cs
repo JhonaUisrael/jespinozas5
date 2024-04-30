@@ -37,7 +37,9 @@ namespace jespinozaS5.Repository
                 if (string.IsNullOrEmpty(name))
                     throw new Exception("Nombre requerido");
 
-                Persona persona = new(name);
+                Persona persona = new Persona() { 
+                Name = name,
+                };
                 result=conn_.Insert(persona);
 
                 statusMessage = string.Format("Se ha agregado {0} registros, Nombre {1}", result, name);
@@ -49,6 +51,25 @@ namespace jespinozaS5.Repository
                 statusMessage = string.Format("No se pudo agregar el registro con nombre: {0}, Error: {1}", name, ex.Message);
 
             }
+        }
+
+        public List<Persona> ListarPersonas()
+        {
+            try
+            {
+                Init();
+
+                return conn_.Table<Persona>().ToList();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                statusMessage = string.Format("No se pudo obtener los registros {0}", ex.Message);
+
+            }
+            return new List<Persona>();
         }
 
     }

@@ -14,14 +14,11 @@ namespace jespinozaS5.Models
         [AutoIncrement,PrimaryKey]
         public int Id { get; set; }
 
-        [Required(ErrorMessage="El {0} es obligatorio"),System.ComponentModel.DataAnnotations.MaxLength(25)]
+        [Required(ErrorMessage="El {0} es obligatorio"),System.ComponentModel.DataAnnotations.MaxLength(25),Unique]
 
         public string Name { get; set; }
 
-        public Persona(string name)
-        {
-            Name = name;
-        }
+      
 
     }
 }

@@ -26,10 +26,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+
             </Grid.ColumnDefinitions>
 
             <Button x:Name="btnAdd" 
-                    Text="Agregar persona"
+                    Text="Agregar"
                     Clicked="btnAdd_Clicked"
                     Grid.Row="0"
                     Grid.Column="0"/>
@@ -39,23 +41,35 @@
                    Grid.Column="0"/>
 
             <Button x:Name="btnList" 
-                   Text="Listar personas"
+                   Text="Listar"
                   Clicked="btnList_Clicked"
-                  Grid.Row="2"
-                 Grid.Column="0"/>
+                  Grid.Row="0"
+                 Grid.Column="1"/>
+            <Button x:Name="btnUpdatePerson" 
+                 Text="Actualizar"
+                 Clicked="btnUpdatePerson_Clicked"
+                 Grid.Row="0"
+                 Grid.Column="2"/>
+            <Label x:Name="idUpdate" IsVisible="false"/>
 
             <CollectionView x:Name="listPersonas"
                             Grid.Row="3"
-                            Grid.Column="0">
+                            Grid.Column="0"
+                            >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Id}" Grid.Column="0"/>
                             <Label Text="{Binding Name}" Grid.Column="1"/>
+                            <Button x:Name="btnDelete" Text="Borrar" CommandParameter="{Binding Id}" Clicked="btnDelete_Clicked" Grid.Column="2"/>
+                            <Button x:Name="btnUpdate" Text="Seleccionar" CommandParameter="{Binding Id}" Clicked="btnUpdate_Clicked" Grid.Column="3"/>
 
                         </Grid>
                     </DataTemplate>

@@ -72,5 +72,69 @@ namespace jespinozaS5.Repository
             return new List<Persona>();
         }
 
+
+        public Persona BuscarPersonaPorId(int Id)
+        {
+            try
+            {
+                Init();
+
+                return conn_.Table<Persona>().FirstOrDefault(p => p.Id == Id);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                statusMessage = string.Format("No se pudo obtener los registros {0}", ex.Message);
+
+            }
+            return new Persona();
+        }
+
+        public void BorraPersona(int Id)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+
+                result = conn_.Execute("DELETE FROM Persona WHERE Id = (?)", Id);
+
+                statusMessage = string.Format("Se ha borrado {0} registro, Id {1}", result, Id);
+
+            }
+            catch (Exception ex)
+            {
+
+                statusMessage = string.Format("No se pudo borrar el registro con Id: {0}, Error: {1}", Id, ex.Message);
+
+            }
+        }
+
+        public void ActualizarPersona(int Id,string nombre)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+                Persona per = new();
+                per.Id = Id;
+                per.Name = nombre;
+                result = conn_.Update(per);
+
+                statusMessage = string.Format("Se ha actualizado {0} registro, Id {1}", result, Id);
+
+            }
+            catch (Exception ex)
+            {
+
+                statusMessage = string.Format("No se pudo actualizado el registro con Id: {0}, Error: {1}", Id, ex.Message);
+
+            }
+        }
+
+
+
     }
 }

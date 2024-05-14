@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jespinozaS5.Views.vAlmacen"
+             Title="vAlmacen">
+    <VerticalStackLayout>
+        <Label 
+    Text="Gestión Almacen"
+    FontSize="20"
+    HorizontalTextAlignment="Center"/>
+        <Button Text="Crear" x:Name="btnCrear" Clicked="btnCrear_Clicked"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+
+            </Grid.ColumnDefinitions>
+            <Label Text="Id" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Nombre" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Descripcion" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Longitud" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Latitud" Grid.Row="1" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Borrar" Grid.Row="1" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Actualizar" Grid.Row="1" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <!--<Button x:Name="btnActualizar" Text="Actualizar" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btnActualizar_Clicked"/>-->
+
+        </Grid>
+
+        <ListView x:Name="listaAlmacen">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblid" Text="{Binding id}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label x:Name="lblNombre" Text="{Binding Nombre}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label x:Name="lbldescripcion" Text="{Binding Direccion}" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label x:Name="lbllatitud" Text="{Binding Latitud}" Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label x:Name="lbllongitud" Text="{Binding Longitud}" Grid.Row="0" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Button x:Name="btnBorrar" Text="Borrar" CommandParameter="{Binding id}" Clicked="btnBorrar_Clicked" Grid.Column="5"/>
+                                <Button x:Name="btnActualizar" Text="Actualizar" CommandParameter="{Binding id}" Clicked="btnActualizar_Clicked" Grid.Column="6"/>
+
+                            </Grid>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jespinozaS5.Views.vCrearAlmacen"
+             Title="vCrearAlmacen">
+    <VerticalStackLayout>
+        <Label 
+            Text="Crear almacen"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Nombre" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Placeholder="Ingrese un nombre" />
+
+            <Label Text="Dirección" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="txtDireccion" Grid.Row="1" Grid.Column="1" Placeholder="Ingrese una dirección" />
+            
+            <Label Text="Latitud" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="txtlatitud" Grid.Row="2" Grid.Column="1" Placeholder="Ingrese una latitud" />
+
+            <Label Text="Longitud" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="txtlongitud" Grid.Row="3" Grid.Column="1" Placeholder="Ingrese una longitud" />
+            
+            <Button x:Name="btnCrear" Text="Crear" Grid.Row="4" Grid.Column="0"   HorizontalOptions="Center" VerticalOptions="Center" Clicked="btnCrear_Clicked"/>
+
+
+        </Grid>
+
+    </VerticalStackLayout>
+    
+    
+</ContentPage>

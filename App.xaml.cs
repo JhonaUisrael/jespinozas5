@@ -10,8 +10,11 @@ namespace jespinozaS5
         {
             InitializeComponent();
 
-            MainPage = new vPersonas();
-            personaRepository = personaRepo;
+          //  MainPage = new vAlmacen();
+            MainPage = new NavigationPage(new vAlmacen());
+
+            //MainPage = new vPersonas();
+            //personaRepository = personaRepo;
         }
     }
 }
